@@ -20,7 +20,7 @@ def getToken():
 def getRoutes(token, wp1, wp2):
     headers = {'Authorization': 'Bearer' + token}
 
-    routeRequestString = BASE_URL + 'findRoute?wp_1=' + wp1 + '&wp_2=' + wp2 + '&maxAlternates=2&useTraffic=true&routeOutputFields=ALL&format=json'
+    routeRequestString = BASE_URL + 'findRoute?wp_1=' + wp1 + '&wp_2=' + wp2 + '&maxAlternates=0&useTraffic=true&routeOutputFields=ALL&format=json'
     routeResponseObj = json.loads(requests.get(routeRequestString, headers=headers).text)
 
     return routeResponseObj['result']['trip']['routes']
