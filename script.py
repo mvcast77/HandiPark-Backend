@@ -13,7 +13,7 @@ def run(startCoords, destCoords, totalTime):
 
 	for parkingLot in LotsData:
 		if(parkingLot['handicapSpacesTotal'] > 0):
-			if((int(parkingLot['handicapSpacesTotal']) * int(parkingLot['occupancy']["probability"]) / 100) >= 1):# Not Done
+			if(int(parkingLot['handicapSpacesTotal']) - (int(parkingLot['handicapSpacesTotal']) * (int(parkingLot['occupancy']["pct"]) / 100)) >= 1):# Not Done
 				parkingLot = simplifyLot(parkingLot)
 				clusters = clusters + 1
 				LotsFinished.append(parkingLot)
