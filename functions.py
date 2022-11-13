@@ -43,5 +43,5 @@ def simplifyRoute(routeDict):
 	return routeDict
 
 def format(str1):
-    str1.replace(',','%7C')
-    return str1
+    str = str1.replace(',','%7C')
+    return str
