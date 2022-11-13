@@ -39,8 +39,8 @@ def simplifyLot(parkingDict):
 	return parkingDict
 
 def simplifyRoute(routeDict):
-
-	return routeDict
+    routeDict['result']['trip']['routes']['points'].pop('routeSpeedBuckets')
+    return routeDict
 
 def format(str1):
     str = str1.replace(',','%7C')
