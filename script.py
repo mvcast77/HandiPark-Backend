@@ -19,7 +19,9 @@ def run(startCoords, destCoords, totalTime):
 				LotsFinished.append(parkingLot)
 
 	for i in range(clusters - 1):
-		parkingCoords = LotsFinished[i]['point']['coordinates']
+		temp1 = str(LotsFinished[i]['point']['coordinates'][1])
+		temp2 = str(LotsFinished[i]['point']['coordinates'][0])
+		parkingCoords = temp1 + ',' + temp2
 		routingData = getRoutes(token, startCoords, parkingCoords)
 
 		for route in routingData:
