@@ -28,6 +28,7 @@ def getRoutes(token, wp1, wp2):
 def getLots(token, point, radius):
 	headers = {'Authorization': 'Bearer' + token}
 
+	point = format(point)
 	lotsRequestString = BASE_URL + 'lots/v3?point=' + str(point) + '&radius=' + str(radius)
 	lotsResponseObj = json.loads(requests.get(lotsRequestString, headers=headers).text)
 
@@ -40,3 +41,7 @@ def simplifyLot(parkingDict):
 def simplifyRoute(routeDict):
 
 	return routeDict
+
+def format(str1):
+    str1.replace(',','%7C')
+    return str1
