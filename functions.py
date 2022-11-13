@@ -11,7 +11,7 @@ BASE_URL = 'https://api.iq.inrix.com/' # os.getenv('BASE_URL')
 def getToken():
     headers = {}
 
-    tokenRequestString = BASE_URL + 'auth/v1/AppToken?appId=' + APP_ID + '&hashToken=' + HASH_TOKEN
+    tokenRequestString = BASE_URL + 'auth/v1/appToken?appId=' + APP_ID + '&hashToken=' + HASH_TOKEN
     tokenResponseObj = json.loads(requests.get(tokenRequestString, headers=headers).text)
 
     return tokenResponseObj['result']['token']
@@ -20,8 +20,7 @@ def getToken():
 def getRoutes(token, wp1, wp2):
     headers = {'Authorization': 'Bearer' + token}
 
-    routeRequestString = BASE_URL + 'findRoute?wp_1=' + wp1 + 'findRoute?wp_2=' + wp2 + \
-                         '&maxAlternates=3&useTraffic=true&routeOutputFields=ALL&format=json'
+    routeRequestString = BASE_URL + 'findRoute?wp_1=' + wp1 + '&wp_2=' + wp2 + '&maxAlternates=3&useTraffic=true&routeOutputFields=ALL&format=json'
     routeResponseObj = json.loads(requests.get(routeRequestString, headers=headers).text)
 
     return routeResponseObj['result']['trip']['routes']
@@ -29,7 +28,7 @@ def getRoutes(token, wp1, wp2):
 def getLots(token, point, radius):
 	headers = {'Authorization': 'Bearer' + token}
 
-	lotsRequestString = BASE_URL + 'lots/v3?point=' + point + 'lots/v3?radius=' + radius
+	lotsRequestString = BASE_URL + 'lots/v3?point=' + point + '&radius=' + radius
 	lotsResponseObj = json.loads(requests.get(lotsRequestString, headers=headers).text)
 
 	return lotsResponseObj['result']
