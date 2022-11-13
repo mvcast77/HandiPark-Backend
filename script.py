@@ -2,7 +2,7 @@ from functions import *
 # Assume startCoods, destCoords, totalTime
 
 # radius exists
-radius = 100
+radius = 1000
 
 def run(startCoords, destCoords, totalTime):
 	token = getToken()
