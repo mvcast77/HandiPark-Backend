@@ -22,10 +22,11 @@ def run(startCoords, destCoords, totalTime):
 		temp1 = str(LotsFinished[i]['point']['coordinates'][1])
 		temp2 = str(LotsFinished[i]['point']['coordinates'][0])
 		parkingCoords = temp1 + ',' + temp2
+		token = getToken()
 		routingData = getRoutes(token, startCoords, parkingCoords)
 
 		for route in routingData:
-			if(route["uncongestedTravelTime"] < totalTime):
+			if(route["uncongestedTravelTimeMinutes"] < totalTime):
 				route = simplifyRoute(route)
 				route['cluster'] = i
 				RoutesFinished.append(route)
