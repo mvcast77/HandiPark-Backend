@@ -39,7 +39,7 @@ def simplifyLot(parkingDict):
 	return parkingDict
 
 def simplifyRoute(routeDict):
-    del routeDict['result']['trip']['routes']['routeSpeedBuckets']
+    #del routeDict['result']['trip']['routes']['routeSpeedBuckets']
     return routeDict
 
 def format(str1):
