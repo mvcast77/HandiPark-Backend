@@ -28,7 +28,7 @@ def getRoutes(token, wp1, wp2):
 def getLots(token, point, radius):
 	headers = {'Authorization': 'Bearer' + token}
 
-	lotsRequestString = BASE_URL + 'lots/v3?point=' + point + '&radius=' + radius
+	lotsRequestString = BASE_URL + 'lots/v3?point=' + str(point) + '&radius=' + str(radius)
 	lotsResponseObj = json.loads(requests.get(lotsRequestString, headers=headers).text)
 
 	return lotsResponseObj['result']
